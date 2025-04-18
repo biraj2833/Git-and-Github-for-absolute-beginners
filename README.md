@@ -118,6 +118,8 @@ git checkout new-feature  # Switch branch
 git merge new-feature     # Merge changes
 ```
 
+---
+
 ## GitHub Integration
 ### Repository Setup
 1. Create new repo on GitHub (public/private)
@@ -147,3 +149,26 @@ git push
 - Use `git status` frequently
 - Write clear commit messages
 - Pull before you push to avoid conflicts
+
+---
+
+## let's learn how git handels our files/folders
+```
+When you create a folder on your computer, Git doesn’t automatically track it.
+To start using Git with that folder, you first need to initialize it (run git init).
+This gives Git permission to manage the folder, allowing it to track files, detect modifications, stage changes, and save checkpoints (commits).
+```
+![image](https://github.com/user-attachments/assets/a80755fa-50db-45d5-81af-b32e93624e9d)
+
+- To check which files are on which stage ➡️ ``` git status -s ```
+- To check how many save points are there ➡️ ``` git log--oneline ``` or ``` git log- ```
+---
+- Step 1 - intilise the folder.
+  
+  ![image](https://github.com/user-attachments/assets/dd0ddffb-b8a9-4c2c-af59-0a6b2e6cec2b)
+  
+  click on the third icon(Source control icon) in vs code  and click intialize, this image in above is after intialization.
+- Step 2 - Now you can check the folder is initialise or not in terminal by writting ``` git status -s ```
+  ![image](https://github.com/user-attachments/assets/ea717b73-0ea7-407c-a827-0771f2577e8f)
+  ![image](https://github.com/user-attachments/assets/99c573d4-d3d3-4896-8bc0-6b36e16d41b7)
+
