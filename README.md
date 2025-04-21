@@ -169,6 +169,134 @@ This gives Git permission to manage the folder, allowing it to track files, dete
   
   click on the third icon(Source control icon) in vs code  and click intialize, this image in above is after intialization.
 - Step 2 - Now you can check the folder is initialise or not in terminal by writting ``` git status -s ```
+- ![image](https://github.com/user-attachments/assets/ee8b45fc-6638-4818-9348-9857a6c0773b)
+   - if it is not initialised this "??" symbol will show ⬆️
+     
+   - and if it is initialised this type of symbol will show up. ⬇️
+ 
   ![image](https://github.com/user-attachments/assets/ea717b73-0ea7-407c-a827-0771f2577e8f)
   ![image](https://github.com/user-attachments/assets/99c573d4-d3d3-4896-8bc0-6b36e16d41b7)
+
+---
+
+# 🌿 Git Branching Guide
+
+## What is a Branch?
+A **branch** is a parallel version of your repository. It lets you:
+- Work on new features without breaking the main code (`main`/`master` branch)
+- Experiment safely
+- Collaborate without conflicts
+
+## Key Commands
+
+### 1. Create & Switch to a New Branch
+```bash
+git switch -b feature/new-login  # Creates and switches to new branch
+```
+
+## Git Branch Creation: `git switch -b` vs `git branch`
+
+### 🔄 Key Difference
+| Command | Creates Branch? | Switches to Branch? | Recommended Use |
+|---------|----------------|---------------------|-----------------|
+| `git switch -b feature/new-feature` | ✅ Yes | ✅ Yes | When you want to **create AND start working** immediately |
+| `git branch feature/new-feature` | ✅ Yes | ❌ No | When you want to create but **stay on current branch** |
+
+---
+
+## 🛠️ Detailed Comparison
+
+#### 1. `git switch -b feature/new-feature`
+```bash
+git branch feature/login-page  # Only creates
+git switch feature/login-page  # Need this to actually use it
+```
+# Git Switch Flags: `-b`, `-c`, `-d` Explained
+
+## 🌿 Basic Flags Comparison
+| Flag | Command Example | Purpose | Notes |
+|------|-----------------|---------|-------|
+| `-b` | `git switch -b new-feature` | **Create and switch** to new branch | Legacy (works in all Git versions) |
+| `-c` | `git switch -c new-feature` | **Create and switch** to new branch | Newer alias for `-b` (Git 2.23+) |
+| `-d` | `git switch -d old-feature` | **Delete** a branch after switching away | Safety check: won't delete unmerged changes |
+
+---
+
+## Detailed Breakdown
+
+### 1. `-b` (Base)
+```bash
+git switch -b feature/login
+```
+
+![image](https://github.com/user-attachments/assets/5f9df443-ed3e-496c-8478-06ea354c5f9e)
+![image](https://github.com/user-attachments/assets/16aedf8b-f284-4e8d-bff4-0278998b825c)
+
+---
+
+# 🔀 Git Merging Guide
+
+## Types of Merges
+
+### 1. Fast-Forward Merge
+```bash
+git checkout main
+git merge feature/login
+```
+- When: Branch has no divergent commits
+- Result: Linear history (no merge commit)
+
+# Three way merging
+```bash
+git checkout main
+git merge --no-ff feature/login  # Forces merge commit
+```
+- When: Branches have diverged
+- Result: Creates new merge commit
+
+Here's a concise comparison table of Fast-Forward (FF) vs Three-Way merges in GitHub-flavored Markdown for your `README.md`:
+
+# 🔀 Git Merge Strategies Comparison
+
+| Feature               | Fast-Forward Merge                | Three-Way Merge                  |
+|-----------------------|-----------------------------------|----------------------------------|
+| **Trigger Condition** | Target branch has no new commits  | Branches have diverged           |
+| **Command**           | `git merge feature-branch`        | `git merge --no-ff feature-branch` |
+| **History**           | Linear (no merge commit)          | Non-linear (creates merge commit) |
+| **Visualization**     | Straight line                     | Merge "bubble" in git log        |
+| **Conflict Risk**     | None                              | High (requires resolution)       |
+| **Best For**          | • Short-lived branches<br>• Solo work<br>• Bug fixes | • Team collaborations<br>• Long-running features<br>• Audit trails |
+| **GitHub UI Default** | "Rebase and merge" option         | "Create merge commit" option     |
+| **Performance**       | Faster (pointer move only)        | Slower (needs diff calculation)  |
+| **Traceability**      | Harder to identify merges         | Clear merge points in history    |
+
+
+## When to Use Which?
+
+### Fast-Forward (FF)
+```bash
+git config --global merge.ff only  # Enforce FF when possible
+```
+✅ Small fixes  
+✅ Release branches  
+✅ CI/CD pipelines requiring linear history  
+
+### Three-Way
+```bash
+git merge --no-ff feature/auth
+```
+✅ Feature toggles  
+✅ Team development  
+✅ Important version integrations  
+
+ 📚 **Pro Tip**: Use `git log --graph --oneline` to visualize merge strategies!
+
+### Key Notes:
+1. **Force FF**: `--ff-only` aborts if not possible
+2. **Force 3-way**: `--no-ff` always creates merge commit
+3. **GitHub**: PR merge buttons map to these strategies
+
+# Stashing
+
+![image](https://github.com/user-attachments/assets/ba1a0a3c-69ae-4c52-b82c-c781ea41b0f3)
 
