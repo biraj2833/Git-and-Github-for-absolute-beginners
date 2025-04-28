@@ -1,5 +1,5 @@
 # Git-and-Github-for-absolute-beginners 
-Here i am sharing all my learning about git and git hub which is for beginners.
+Here i am sharing all my learning about git and git hub which is for beginners. If you saw any mistakes kindly give a pull request.
 
 ---
 
@@ -299,4 +299,19 @@ git merge --no-ff feature/auth
 # Stashing
 
 ![image](https://github.com/user-attachments/assets/ba1a0a3c-69ae-4c52-b82c-c781ea41b0f3)
+![image](https://github.com/user-attachments/assets/aacd4a7c-c2e2-4eb3-bbdc-c8026fc4299e) 
+If you edit a file and dont commit the changes, now if you change the branch [( ``` git switch feature/stashing ``` ) feature/stashing is the file name ]without commiting your file git tell you to commit the changes or stash them ,  
+we can use ``` git stash ``` to save the changes or stash the file. 
+now if you again switch into the main branch (``` git switch main```) you can't see the changes until you applt them by (``` git stash apply```).
+And now if you want to delete the stash memory (``` git stash clear```).
 
+# Collaboration 
+We can collaborates with other on a project using git hub.
+   1. The main guy will intialize the repository and make folder in it and then upload it on github.
+   2. And he also have add colaboraters in the repo from ``` settings -> add collaborator ```.
+   3. Another team members can now download it.
+   4. firtly all guys have to make their own branches and then do their work on thier own branch it is very important steps either wise the project will get messed up.
+   5. Then every one can commit their work and give a pull request.
+   6. Now the main guy can see the pull request and if want he can merge it to the main project.
+   7. ![image](https://github.com/user-attachments/assets/860b4bbf-9a44-4fb6-bffc-81d8af63fe46)
+      
